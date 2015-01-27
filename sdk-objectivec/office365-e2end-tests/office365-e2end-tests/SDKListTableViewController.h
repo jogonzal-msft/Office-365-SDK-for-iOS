@@ -10,6 +10,7 @@
 #import "MailTestRunner.h"
 #import "FilesTestRunner.h"
 #import "DiscoveryTestRunner.h"
+#import "ListTestRunner.h"
 @interface SDKListTableViewController : UITableViewController
 
 @property NSMutableArray *availableSdks;

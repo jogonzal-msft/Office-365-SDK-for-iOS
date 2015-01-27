@@ -10,10 +10,11 @@
 #import "MSDiscoveryClient.h"
 #import <office365_files_sdk/office365_files_sdk.h>
 #import <office365_directory_sdk/office365_directory_sdk.h>
-
+#import <office365-lists-sdk/ListClient.h>
 @interface BaseController : NSObject
 
 -(void)getMailClient : (void (^) (MSOutlookClient* c))callback;
 -(void)getSharePointClient : (void (^) (MSSharePointClient* c))callback;
 -(void)getDiscoveryClient : (void (^) (MSDiscoveryClient* c))callback;
+-(void)getListClient : (void (^) (ListClient* c))callback;
 @end

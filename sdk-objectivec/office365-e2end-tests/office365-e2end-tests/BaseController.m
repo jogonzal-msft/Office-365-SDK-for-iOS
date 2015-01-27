@@ -6,6 +6,7 @@
 
 #import "BaseController.h"
 #import "LogInController.h"
+#import "OAuthentication.h"
 
 @implementation BaseController
 
@@ -23,10 +24,10 @@
 -(void) getSharePointClient:(void (^)(MSSharePointClient *))callback{
     LogInController* loginController = [[LogInController alloc] init];
     
-    [loginController getTokenWith : @"https://teeudev1-my.sharepoint.com/" :true completionHandler:^(NSString *token) {
+    [loginController getTokenWith : @"https://yoursharepoint-my.sharepoint.com/" :true completionHandler:^(NSString *token) {
         
         MSODataDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
-        callback([[MSSharePointClient alloc] initWithUrl:@"https://teeudev1-my.sharepoint.com/_api/v1.0/me" dependencyResolver:resolver]);
+        callback([[MSSharePointClient alloc] initWithUrl:@"https://yoursharepoint-my.sharepoint.com/_api/v1.0/me" dependencyResolver:resolver]);
     }];
 }
 
@@ -37,6 +38,16 @@
         
         MSODataDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
         callback([[MSDiscoveryClient alloc] initWithUrl:@"https://api.office.com/discovery/v1.0/me/" dependencyResolver:resolver]);
+    }];
+}
+
+-(void) getListClient:(void (^)(ListClient *))callback{
+    LogInController* loginController = [[LogInController alloc] init];
+    
+    [loginController getTokenWith : @"https://yoursharepoint-my.sharepoint.com/" :true completionHandler:^(NSString *token) {
+        
+        OAuthentication *credentials = [[OAuthentication alloc] initWith:token];
+        callback([[ListClient alloc] initWithUrl:@"https://yoursharepoint-my.sharepoint.com/personal/user_contoso_com" credentials:credentials]);
     }];
 }
 

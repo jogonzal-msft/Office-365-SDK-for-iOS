@@ -20,6 +20,7 @@
     [self.availableSdks addObject:@"Exchange"];
     [self.availableSdks addObject:@"Files"];
     [self.availableSdks addObject:@"Discovery"];
+        [self.availableSdks addObject:@"Lists"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -63,6 +64,13 @@
     if([name isEqualToString:@"Discovery"]){
         [[[BaseController alloc]init]getDiscoveryClient:^(MSDiscoveryClient *c) {
             DiscoveryTestRunner *runner = [[DiscoveryTestRunner alloc] initWithClient:c];
+            [self performSegueWithIdentifier:@"segue" sender:runner];
+        }];
+    }
+    
+    if([name isEqualToString:@"Lists"]){
+        [[[BaseController alloc]init]getListClient:^(ListClient *c) {
+            ListTestRunner *runner = [[ListTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];
         }];
     }

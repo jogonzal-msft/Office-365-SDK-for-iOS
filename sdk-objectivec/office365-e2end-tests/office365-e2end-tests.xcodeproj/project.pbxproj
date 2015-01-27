@@ -11,6 +11,7 @@
 		1C9D46511A14E84B00D5361E /* TestRunnerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9D46501A14E84B00D5361E /* TestRunnerTableViewController.m */; };
 		1C9D46541A14EEDC00D5361E /* SDKListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9D46531A14EEDC00D5361E /* SDKListTableViewController.m */; };
 		1C9D46571A14FDBD00D5361E /* FilesTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9D46561A14FDBD00D5361E /* FilesTestRunner.m */; };
+		1CD6D66F1A7691C800853198 /* ListTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD6D66E1A7691C800853198 /* ListTestRunner.m */; };
 		1CFB946D1A1A7F4400F0C523 /* DiscoveryTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFB946C1A1A7F4400F0C523 /* DiscoveryTestRunner.m */; };
 		3CAC071E19F1E128004AF241 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071C19F1E128004AF241 /* failed.png */; };
 		3CAC071F19F1E128004AF241 /* passed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071D19F1E128004AF241 /* passed.png */; };
@@ -41,6 +42,8 @@
 		1C9D46531A14EEDC00D5361E /* SDKListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKListTableViewController.m; sourceTree = "<group>"; };
 		1C9D46551A14FDBD00D5361E /* FilesTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesTestRunner.h; sourceTree = "<group>"; };
 		1C9D46561A14FDBD00D5361E /* FilesTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesTestRunner.m; sourceTree = "<group>"; };
+		1CD6D66D1A7691C800853198 /* ListTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTestRunner.h; sourceTree = "<group>"; };
+		1CD6D66E1A7691C800853198 /* ListTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTestRunner.m; sourceTree = "<group>"; };
 		1CFB946B1A1A7F4400F0C523 /* DiscoveryTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryTestRunner.h; sourceTree = "<group>"; };
 		1CFB946C1A1A7F4400F0C523 /* DiscoveryTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryTestRunner.m; sourceTree = "<group>"; };
 		3CAC071C19F1E128004AF241 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */,
 				1CFB946B1A1A7F4400F0C523 /* DiscoveryTestRunner.h */,
 				1CFB946C1A1A7F4400F0C523 /* DiscoveryTestRunner.m */,
+				1CD6D66D1A7691C800853198 /* ListTestRunner.h */,
+				1CD6D66E1A7691C800853198 /* ListTestRunner.m */,
 			);
 			name = Runners;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBBC9CA19F1AD2C00DE04A4 /* LogInController.m in Sources */,
+				1CD6D66F1A7691C800853198 /* ListTestRunner.m in Sources */,
 				1C9D46511A14E84B00D5361E /* TestRunnerTableViewController.m in Sources */,
 				ECBBC9C719F1AD2C00DE04A4 /* BaseTestRunner.m in Sources */,
 				ECBBC9CF19F1AD2C00DE04A4 /* UserSettingsViewController.m in Sources */,
