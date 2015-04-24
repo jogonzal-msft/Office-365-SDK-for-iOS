@@ -28,12 +28,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)updateMessage:(id)entity callback:(void (^)(MSGraphServiceMessage *message, MSODataException *exception))callback {
+- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSGraphServiceMessage *message, MSODataException *exception))callback {
 
 	return [super updateEntity:entity callback:callback];
 }
 
-- (NSURLSessionTask *)deleteMessage:(void (^)(int status, MSODataException *exception))callback {
+- (NSURLSessionTask *)delete:(void (^)(int status, MSODataException *exception))callback {
 
 	return [super deleteWithCallback:callback];
 }
@@ -50,7 +50,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (MSGraphServiceEventMessageFetcher *)asEventMessage {
 
-	return [[MSGraphServiceEventMessageFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceEventMessage class]];
+	return [[MSGraphServiceEventMessageFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceEventMessage class]];
 }
 
 @end

@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)restoreWithIdentifierUris:(NSString *) identifierUris callback:(void (^)(MSGraphServiceApplication *application, MSODataException *exception))callback {
+- (NSURLSessionTask *)restoreWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(MSGraphServiceApplication *application, MSODataException *exception))callback {
 	
 	NSString *identifierUrisString = [self.resolver.jsonSerializer serialize:identifierUris property:@"identifierUris"];
 	NSURLSessionTask *task = [self restoreRawWithIdentifierUris:identifierUrisString callback:^(NSString *returnValue, MSODataException *exception) {

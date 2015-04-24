@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceOAuth2PermissionGrantFetcher : MSODataEntityFetcher<MSGraphServiceOAuth2PermissionGrantFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateOAuth2PermissionGrant:(MSGraphServiceOAuth2PermissionGrant *)oAuth2PermissionGrant callback:(void (^)(MSGraphServiceOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteOAuth2PermissionGrant:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceOAuth2PermissionGrant *)oAuth2PermissionGrant callback:(void (^)(MSGraphServiceOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

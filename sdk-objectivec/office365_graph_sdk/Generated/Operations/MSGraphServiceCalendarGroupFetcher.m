@@ -28,12 +28,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)updateCalendarGroup:(id)entity callback:(void (^)(MSGraphServiceCalendarGroup *calendarGroup, MSODataException *exception))callback {
+- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSGraphServiceCalendarGroup *calendarGroup, MSODataException *exception))callback {
 
 	return [super updateEntity:entity callback:callback];
 }
 
-- (NSURLSessionTask *)deleteCalendarGroup:(void (^)(int status, MSODataException *exception))callback {
+- (NSURLSessionTask *)delete:(void (^)(int status, MSODataException *exception))callback {
 
 	return [super deleteWithCallback:callback];
 }

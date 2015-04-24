@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)checkMemberGroupsWithGroupIds:(NSString *) groupIds callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback {
+- (NSURLSessionTask *)checkMemberGroupsWithGroupIds:(NSString *)groupIds callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback {
 	
 	NSString *groupIdsString = [self.resolver.jsonSerializer serialize:groupIds property:@"groupIds"];
 	NSURLSessionTask *task = [self checkMemberGroupsRawWithGroupIds:groupIdsString callback:^(NSString *returnValue, MSODataException *exception) {
@@ -74,7 +74,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)getMemberGroupsWithSecurityEnabledOnly:(BOOL) securityEnabledOnly callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback {
+- (NSURLSessionTask *)getMemberGroupsWithSecurityEnabledOnly:(BOOL)securityEnabledOnly callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback {
 	
 	NSString *securityEnabledOnlyString = [self.resolver.jsonSerializer serialize:(securityEnabledOnly ? @"true" : @"false") property:@"securityEnabledOnly"];
 	NSURLSessionTask *task = [self getMemberGroupsRawWithSecurityEnabledOnly:securityEnabledOnlyString callback:^(NSString *returnValue, MSODataException *exception) {
@@ -123,7 +123,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)getMemberObjectsWithSecurityEnabledOnly:(BOOL) securityEnabledOnly callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback {
+- (NSURLSessionTask *)getMemberObjectsWithSecurityEnabledOnly:(BOOL)securityEnabledOnly callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback {
 	
 	NSString *securityEnabledOnlyString = [self.resolver.jsonSerializer serialize:(securityEnabledOnly ? @"true" : @"false") property:@"securityEnabledOnly"];
 	NSURLSessionTask *task = [self getMemberObjectsRawWithSecurityEnabledOnly:securityEnabledOnlyString callback:^(NSString *returnValue, MSODataException *exception) {

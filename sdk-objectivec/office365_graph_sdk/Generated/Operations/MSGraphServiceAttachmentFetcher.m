@@ -28,29 +28,29 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)updateAttachment:(id)entity callback:(void (^)(MSGraphServiceAttachment *attachment, MSODataException *exception))callback {
+- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSGraphServiceAttachment *attachment, MSODataException *exception))callback {
 
 	return [super updateEntity:entity callback:callback];
 }
 
-- (NSURLSessionTask *)deleteAttachment:(void (^)(int status, MSODataException *exception))callback {
+- (NSURLSessionTask *)delete:(void (^)(int status, MSODataException *exception))callback {
 
 	return [super deleteWithCallback:callback];
 }
 
 - (MSGraphServiceFileAttachmentFetcher *)asFileAttachment {
 
-	return [[MSGraphServiceFileAttachmentFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceFileAttachment class]];
+	return [[MSGraphServiceFileAttachmentFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceFileAttachment class]];
 }
 
 - (MSGraphServiceItemAttachmentFetcher *)asItemAttachment {
 
-	return [[MSGraphServiceItemAttachmentFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceItemAttachment class]];
+	return [[MSGraphServiceItemAttachmentFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceItemAttachment class]];
 }
 
 - (MSGraphServiceReferenceAttachmentFetcher *)asReferenceAttachment {
 
-	return [[MSGraphServiceReferenceAttachmentFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceReferenceAttachment class]];
+	return [[MSGraphServiceReferenceAttachmentFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceReferenceAttachment class]];
 }
 
 @end

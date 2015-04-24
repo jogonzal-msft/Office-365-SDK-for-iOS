@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)copyWithDestFolderId:(NSString *) destFolderId destFolderPath:(NSString *) destFolderPath newName:(NSString *) newName callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback {
+- (NSURLSessionTask *)copyWithDestFolderId:(NSString *)destFolderId destFolderPath:(NSString *)destFolderPath newName:(NSString *)newName callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback {
 	
 	NSString *destFolderIdString = [self.resolver.jsonSerializer serialize:destFolderId property:@"destFolderId"];
 	NSString *destFolderPathString = [self.resolver.jsonSerializer serialize:destFolderPath property:@"destFolderPath"];

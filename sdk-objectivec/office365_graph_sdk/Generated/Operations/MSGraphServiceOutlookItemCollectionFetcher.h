@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSGraphServiceOutlookItemCollectionFetcher>)select:(NSString *)params;
 - (id<MSGraphServiceOutlookItemCollectionFetcher>)filter:(NSString *)params;
+- (id<MSGraphServiceOutlookItemCollectionFetcher>)search:(NSString *)params;
 - (id<MSGraphServiceOutlookItemCollectionFetcher>)top:(int)value;
 - (id<MSGraphServiceOutlookItemCollectionFetcher>)skip:(int)value;
 - (id<MSGraphServiceOutlookItemCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSGraphServiceOutlookItemFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addOutlookItem:(MSGraphServiceOutlookItem *)entity callback:(void (^)(MSGraphServiceOutlookItem *outlookItem, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSGraphServiceOutlookItem *)entity callback:(void (^)(MSGraphServiceOutlookItem *outlookItem, MSODataException *e))callback;
 
 @end
 

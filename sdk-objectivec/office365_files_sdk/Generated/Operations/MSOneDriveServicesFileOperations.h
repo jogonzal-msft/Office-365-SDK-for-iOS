@@ -25,7 +25,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
 - (NSURLSessionTask *)copyWithDestFolderId:(NSString *)destFolderId destFolderPath:(NSString *)destFolderPath newName:(NSString *)newName callback:(void (^)(MSOneDriveServicesFile *file, MSODataException *exception))callback;
+- (NSURLSessionTask *)copyRawWithDestFolderId:(NSString *) destFolderId destFolderPath:(NSString *) destFolderPath newName:(NSString *) newName callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)uploadContentWithContentStream:(NSStream *)contentStream callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)uploadContentRawWithContentStream:(NSString *) contentStream callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)contentWithCallback:(void (^)(NSStream *stream, MSODataException *exception))callback;
 
 @end

@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSOneDriveServicesDriveFetcher : MSODataEntityFetcher<MSOneDriveServicesDriveFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDrive:(MSOneDriveServicesDrive *)drive callback:(void (^)(MSOneDriveServicesDrive *drive, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDrive:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSOneDriveServicesDrive *)drive callback:(void (^)(MSOneDriveServicesDrive *drive, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

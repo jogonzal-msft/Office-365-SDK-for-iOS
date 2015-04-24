@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSGraphServiceCalendarGroup class]];
 }
 
-- (NSURLSessionTask *)addCalendarGroup:(MSGraphServiceCalendarGroup*)entity callback:(void (^)(MSGraphServiceCalendarGroup *calendarGroup, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSGraphServiceCalendarGroup*)entity callback:(void (^)(MSGraphServiceCalendarGroup *calendarGroup, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

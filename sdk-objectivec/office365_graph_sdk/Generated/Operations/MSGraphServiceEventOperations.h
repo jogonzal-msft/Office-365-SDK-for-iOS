@@ -24,11 +24,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
-- (NSURLSessionTask *)acceptWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)acceptWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)acceptRawWithComment:(NSString *) comment callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)declineWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)declineWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)declineRawWithComment:(NSString *) comment callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)tentativelyAcceptWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)tentativelyAcceptWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)tentativelyAcceptRawWithComment:(NSString *) comment callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 
 @end

@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)acceptWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)acceptWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
 	NSURLSessionTask *task = [self acceptRawWithComment:commentString callback:^(NSString *returnValue, MSODataException *exception) {
@@ -74,7 +74,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)declineWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)declineWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
 	NSURLSessionTask *task = [self declineRawWithComment:commentString callback:^(NSString *returnValue, MSODataException *exception) {
@@ -123,7 +123,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)tentativelyAcceptWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)tentativelyAcceptWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
 	NSURLSessionTask *task = [self tentativelyAcceptRawWithComment:commentString callback:^(NSString *returnValue, MSODataException *exception) {

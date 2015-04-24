@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSOneDriveServicesDriveCollectionFetcher>)select:(NSString *)params;
 - (id<MSOneDriveServicesDriveCollectionFetcher>)filter:(NSString *)params;
+- (id<MSOneDriveServicesDriveCollectionFetcher>)search:(NSString *)params;
 - (id<MSOneDriveServicesDriveCollectionFetcher>)top:(int)value;
 - (id<MSOneDriveServicesDriveCollectionFetcher>)skip:(int)value;
 - (id<MSOneDriveServicesDriveCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSOneDriveServicesDriveFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addDrive:(MSOneDriveServicesDrive *)entity callback:(void (^)(MSOneDriveServicesDrive *drive, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSOneDriveServicesDrive *)entity callback:(void (^)(MSOneDriveServicesDrive *drive, MSODataException *e))callback;
 
 @end
 

@@ -45,7 +45,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceOutlookItemFetcher : MSODataEntityFetcher<MSGraphServiceOutlookItemFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateOutlookItem:(MSGraphServiceOutlookItem *)outlookItem callback:(void (^)(MSGraphServiceOutlookItem *outlookItem, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteOutlookItem:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceOutlookItem *)outlookItem callback:(void (^)(MSGraphServiceOutlookItem *outlookItem, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

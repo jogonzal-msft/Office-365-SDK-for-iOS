@@ -61,7 +61,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceServicePrincipalFetcher : MSODataEntityFetcher<MSGraphServiceServicePrincipalFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateServicePrincipal:(MSGraphServiceServicePrincipal *)servicePrincipal callback:(void (^)(MSGraphServiceServicePrincipal *servicePrincipal, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteServicePrincipal:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceServicePrincipal *)servicePrincipal callback:(void (^)(MSGraphServiceServicePrincipal *servicePrincipal, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

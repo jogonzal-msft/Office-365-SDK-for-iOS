@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSGraphServiceOAuth2PermissionGrant class]];
 }
 
-- (NSURLSessionTask *)addOAuth2PermissionGrant:(MSGraphServiceOAuth2PermissionGrant*)entity callback:(void (^)(MSGraphServiceOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSGraphServiceOAuth2PermissionGrant*)entity callback:(void (^)(MSGraphServiceOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

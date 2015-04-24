@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceDirectoryRoleTemplateFetcher : MSODataEntityFetcher<MSGraphServiceDirectoryRoleTemplateFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDirectoryRoleTemplate:(MSGraphServiceDirectoryRoleTemplate *)directoryRoleTemplate callback:(void (^)(MSGraphServiceDirectoryRoleTemplate *directoryRoleTemplate, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDirectoryRoleTemplate:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceDirectoryRoleTemplate *)directoryRoleTemplate callback:(void (^)(MSGraphServiceDirectoryRoleTemplate *directoryRoleTemplate, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

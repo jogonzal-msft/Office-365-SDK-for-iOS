@@ -24,9 +24,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
-- (NSURLSessionTask *)assignLicenseWithAddLicenses:(MSGraphServiceAssignedLicense *) addLicenses removeLicenses:(NSString *) removeLicenses callback:(void (^)(MSGraphServiceUser *user, MSODataException *exception))callback;
+- (NSURLSessionTask *)assignLicenseWithAddLicenses:(MSGraphServiceAssignedLicense *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(MSGraphServiceUser *user, MSODataException *exception))callback;
 - (NSURLSessionTask *)assignLicenseRawWithAddLicenses:(NSString *) addLicenses removeLicenses:(NSString *) removeLicenses callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)sendMailWithMessage:(MSGraphServiceMessage *) message saveToSentItems:(BOOL ) saveToSentItems callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)sendMailWithMessage:(MSGraphServiceMessage *)message saveToSentItems:(BOOL )saveToSentItems callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)sendMailRawWithMessage:(NSString *) message saveToSentItems:(NSString *) saveToSentItems callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 
 @end

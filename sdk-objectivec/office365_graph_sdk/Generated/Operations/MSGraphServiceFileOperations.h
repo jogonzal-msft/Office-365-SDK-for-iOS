@@ -24,7 +24,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
-- (NSURLSessionTask *)uploadContentWithContentStream:(NSStream *) contentStream callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)uploadContentWithContentStream:(NSStream *)contentStream callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)uploadContentRawWithContentStream:(NSString *) contentStream callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 
 @end

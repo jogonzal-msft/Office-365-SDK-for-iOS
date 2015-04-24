@@ -47,7 +47,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceCalendarFetcher : MSODataEntityFetcher<MSGraphServiceCalendarFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateCalendar:(MSGraphServiceCalendar *)calendar callback:(void (^)(MSGraphServiceCalendar *calendar, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteCalendar:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceCalendar *)calendar callback:(void (^)(MSGraphServiceCalendar *calendar, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

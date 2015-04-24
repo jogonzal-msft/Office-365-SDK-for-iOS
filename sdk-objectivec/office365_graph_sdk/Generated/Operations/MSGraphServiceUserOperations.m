@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)assignLicenseWithAddLicenses:(MSGraphServiceAssignedLicense *) addLicenses removeLicenses:(NSString *) removeLicenses callback:(void (^)(MSGraphServiceUser *user, MSODataException *exception))callback {
+- (NSURLSessionTask *)assignLicenseWithAddLicenses:(MSGraphServiceAssignedLicense *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(MSGraphServiceUser *user, MSODataException *exception))callback {
 	
 	NSString *addLicensesString = [self.resolver.jsonSerializer serialize:addLicenses property:@"addLicenses"];
 	NSString *removeLicensesString = [self.resolver.jsonSerializer serialize:removeLicenses property:@"removeLicenses"];
@@ -76,7 +76,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)sendMailWithMessage:(MSGraphServiceMessage *) message saveToSentItems:(BOOL ) saveToSentItems callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)sendMailWithMessage:(MSGraphServiceMessage *)message saveToSentItems:(BOOL )saveToSentItems callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *messageString = [self.resolver.jsonSerializer serialize:message property:@"Message"];
 	NSString *saveToSentItemsString = [self.resolver.jsonSerializer serialize:(saveToSentItems ? @"true" : @"false") property:@"SaveToSentItems"];

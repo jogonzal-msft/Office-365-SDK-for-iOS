@@ -28,12 +28,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)updateFileAttachment:(id)entity callback:(void (^)(MSGraphServiceFileAttachment *fileAttachment, MSODataException *exception))callback {
+- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSGraphServiceFileAttachment *fileAttachment, MSODataException *exception))callback {
 
 	return [super updateEntity:entity callback:callback];
 }
 
-- (NSURLSessionTask *)deleteFileAttachment:(void (^)(int status, MSODataException *exception))callback {
+- (NSURLSessionTask *)delete:(void (^)(int status, MSODataException *exception))callback {
 
 	return [super deleteWithCallback:callback];
 }

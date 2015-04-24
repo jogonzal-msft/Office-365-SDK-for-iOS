@@ -24,7 +24,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
-- (NSURLSessionTask *)restoreWithIdentifierUris:(NSString *) identifierUris callback:(void (^)(MSGraphServiceApplication *application, MSODataException *exception))callback;
+- (NSURLSessionTask *)restoreWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(MSGraphServiceApplication *application, MSODataException *exception))callback;
 - (NSURLSessionTask *)restoreRawWithIdentifierUris:(NSString *) identifierUris callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 
 @end

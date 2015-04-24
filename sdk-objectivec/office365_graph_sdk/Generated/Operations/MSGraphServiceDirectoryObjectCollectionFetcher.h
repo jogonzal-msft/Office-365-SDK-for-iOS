@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSGraphServiceDirectoryObjectCollectionFetcher>)select:(NSString *)params;
 - (id<MSGraphServiceDirectoryObjectCollectionFetcher>)filter:(NSString *)params;
+- (id<MSGraphServiceDirectoryObjectCollectionFetcher>)search:(NSString *)params;
 - (id<MSGraphServiceDirectoryObjectCollectionFetcher>)top:(int)value;
 - (id<MSGraphServiceDirectoryObjectCollectionFetcher>)skip:(int)value;
 - (id<MSGraphServiceDirectoryObjectCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSGraphServiceDirectoryObjectFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addDirectoryObject:(MSGraphServiceDirectoryObject *)entity callback:(void (^)(MSGraphServiceDirectoryObject *directoryObject, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSGraphServiceDirectoryObject *)entity callback:(void (^)(MSGraphServiceDirectoryObject *directoryObject, MSODataException *e))callback;
 
 @end
 

@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceDriveFetcher : MSODataEntityFetcher<MSGraphServiceDriveFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDrive:(MSGraphServiceDrive *)drive callback:(void (^)(MSGraphServiceDrive *drive, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDrive:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceDrive *)drive callback:(void (^)(MSGraphServiceDrive *drive, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

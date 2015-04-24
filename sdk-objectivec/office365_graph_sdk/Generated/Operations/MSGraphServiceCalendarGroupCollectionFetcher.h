@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSGraphServiceCalendarGroupCollectionFetcher>)select:(NSString *)params;
 - (id<MSGraphServiceCalendarGroupCollectionFetcher>)filter:(NSString *)params;
+- (id<MSGraphServiceCalendarGroupCollectionFetcher>)search:(NSString *)params;
 - (id<MSGraphServiceCalendarGroupCollectionFetcher>)top:(int)value;
 - (id<MSGraphServiceCalendarGroupCollectionFetcher>)skip:(int)value;
 - (id<MSGraphServiceCalendarGroupCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSGraphServiceCalendarGroupFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addCalendarGroup:(MSGraphServiceCalendarGroup *)entity callback:(void (^)(MSGraphServiceCalendarGroup *calendarGroup, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSGraphServiceCalendarGroup *)entity callback:(void (^)(MSGraphServiceCalendarGroup *calendarGroup, MSODataException *e))callback;
 
 @end
 

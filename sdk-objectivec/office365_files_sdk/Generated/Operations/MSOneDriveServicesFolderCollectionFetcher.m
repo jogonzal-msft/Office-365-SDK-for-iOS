@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSOneDriveServicesFolder class]];
 }
 
-- (NSURLSessionTask *)addFolder:(MSOneDriveServicesFolder*)entity callback:(void (^)(MSOneDriveServicesFolder *folder, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSOneDriveServicesFolder*)entity callback:(void (^)(MSOneDriveServicesFolder *folder, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

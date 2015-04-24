@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSGraphServiceOAuth2PermissionGrantCollectionFetcher>)select:(NSString *)params;
 - (id<MSGraphServiceOAuth2PermissionGrantCollectionFetcher>)filter:(NSString *)params;
+- (id<MSGraphServiceOAuth2PermissionGrantCollectionFetcher>)search:(NSString *)params;
 - (id<MSGraphServiceOAuth2PermissionGrantCollectionFetcher>)top:(int)value;
 - (id<MSGraphServiceOAuth2PermissionGrantCollectionFetcher>)skip:(int)value;
 - (id<MSGraphServiceOAuth2PermissionGrantCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSGraphServiceOAuth2PermissionGrantFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addOAuth2PermissionGrant:(MSGraphServiceOAuth2PermissionGrant *)entity callback:(void (^)(MSGraphServiceOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSGraphServiceOAuth2PermissionGrant *)entity callback:(void (^)(MSGraphServiceOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *e))callback;
 
 @end
 

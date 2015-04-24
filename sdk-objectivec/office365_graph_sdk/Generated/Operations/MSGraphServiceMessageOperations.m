@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)copyWithDestinationId:(NSString *) destinationId callback:(void (^)(MSGraphServiceMessage *message, MSODataException *exception))callback {
+- (NSURLSessionTask *)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSGraphServiceMessage *message, MSODataException *exception))callback {
 	
 	NSString *destinationIdString = [self.resolver.jsonSerializer serialize:destinationId property:@"DestinationId"];
 	NSURLSessionTask *task = [self copyRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSODataException *exception) {
@@ -74,7 +74,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)moveWithDestinationId:(NSString *) destinationId callback:(void (^)(MSGraphServiceMessage *message, MSODataException *exception))callback {
+- (NSURLSessionTask *)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSGraphServiceMessage *message, MSODataException *exception))callback {
 	
 	NSString *destinationIdString = [self.resolver.jsonSerializer serialize:destinationId property:@"DestinationId"];
 	NSURLSessionTask *task = [self moveRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSODataException *exception) {
@@ -249,7 +249,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)replyWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)replyWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
 	NSURLSessionTask *task = [self replyRawWithComment:commentString callback:^(NSString *returnValue, MSODataException *exception) {
@@ -298,7 +298,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)replyAllWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)replyAllWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
 	NSURLSessionTask *task = [self replyAllRawWithComment:commentString callback:^(NSString *returnValue, MSODataException *exception) {
@@ -347,7 +347,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)forwardWithComment:(NSString *) comment toRecipients:(MSGraphServiceRecipient *) toRecipients callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)forwardWithComment:(NSString *)comment toRecipients:(MSGraphServiceRecipient *)toRecipients callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
 	NSString *toRecipientsString = [self.resolver.jsonSerializer serialize:toRecipients property:@"ToRecipients"];

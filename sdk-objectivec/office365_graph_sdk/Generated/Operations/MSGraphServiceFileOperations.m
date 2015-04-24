@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)uploadContentWithContentStream:(NSStream *) contentStream callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)uploadContentWithContentStream:(NSStream *)contentStream callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *contentStreamString = [self.resolver.jsonSerializer serialize:contentStream property:@"contentStream"];
 	NSURLSessionTask *task = [self uploadContentRawWithContentStream:contentStreamString callback:^(NSString *returnValue, MSODataException *exception) {

@@ -20,7 +20,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphServiceItemCollectionOperations : MSODataOperations
-- (NSURLSessionTask *)addWithPath:(NSString *) path nameConflict:(NSString *) nameConflict type:(NSString *) type content:(NSStream *) content callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback;
-- (NSURLSessionTask *)addRawWithPath:(NSString *) path nameConflict:(NSString *) nameConflict type:(NSString *) type content:(NSString *) content callback:(void (^)(NSString *item, MSODataException *exception))callback;
-- (NSURLSessionTask *)getByPathWithPath:(NSString *) path callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback;			
+- (NSURLSessionTask *)addWithPath:(NSString *)path nameConflict:(NSString *)nameConflict type:(NSString *)type content:(NSStream *)content callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback;			
+- (NSURLSessionTask *)addRawWithPath:(NSString *) path nameConflict:(NSString *) nameConflict type:(NSString *) type content:(NSString *) content callback:(void (^)(NSString *item, MSODataException *exception))callback;			
+- (NSURLSessionTask *)getByPathWithPath:(NSString *)path callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback;			
 @end

@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceAppRoleAssignmentFetcher : MSODataEntityFetcher<MSGraphServiceAppRoleAssignmentFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateAppRoleAssignment:(MSGraphServiceAppRoleAssignment *)appRoleAssignment callback:(void (^)(MSGraphServiceAppRoleAssignment *appRoleAssignment, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteAppRoleAssignment:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceAppRoleAssignment *)appRoleAssignment callback:(void (^)(MSGraphServiceAppRoleAssignment *appRoleAssignment, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

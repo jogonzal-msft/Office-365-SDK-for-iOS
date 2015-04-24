@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSGraphServiceDevice class]];
 }
 
-- (NSURLSessionTask *)addDevice:(MSGraphServiceDevice*)entity callback:(void (^)(MSGraphServiceDevice *device, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSGraphServiceDevice*)entity callback:(void (^)(MSGraphServiceDevice *device, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

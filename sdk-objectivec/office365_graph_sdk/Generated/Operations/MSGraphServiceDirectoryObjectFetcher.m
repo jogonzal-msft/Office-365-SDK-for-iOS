@@ -28,79 +28,79 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)updateDirectoryObject:(id)entity callback:(void (^)(MSGraphServiceDirectoryObject *directoryObject, MSODataException *exception))callback {
+- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSGraphServiceDirectoryObject *directoryObject, MSODataException *exception))callback {
 
 	return [super updateEntity:entity callback:callback];
 }
 
-- (NSURLSessionTask *)deleteDirectoryObject:(void (^)(int status, MSODataException *exception))callback {
+- (NSURLSessionTask *)delete:(void (^)(int status, MSODataException *exception))callback {
 
 	return [super deleteWithCallback:callback];
 }
 
 - (MSGraphServiceApplicationFetcher *)asApplication {
 
-	return [[MSGraphServiceApplicationFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceApplication class]];
+	return [[MSGraphServiceApplicationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceApplication class]];
 }
 
 - (MSGraphServiceExtensionPropertyFetcher *)asExtensionProperty {
 
-	return [[MSGraphServiceExtensionPropertyFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceExtensionProperty class]];
+	return [[MSGraphServiceExtensionPropertyFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceExtensionProperty class]];
 }
 
 - (MSGraphServiceUserFetcher *)asUser {
 
-	return [[MSGraphServiceUserFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceUser class]];
+	return [[MSGraphServiceUserFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceUser class]];
 }
 
 - (MSGraphServiceAppRoleAssignmentFetcher *)asAppRoleAssignment {
 
-	return [[MSGraphServiceAppRoleAssignmentFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceAppRoleAssignment class]];
+	return [[MSGraphServiceAppRoleAssignmentFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceAppRoleAssignment class]];
 }
 
 - (MSGraphServiceContactFetcher *)asContact {
 
-	return [[MSGraphServiceContactFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceContact class]];
+	return [[MSGraphServiceContactFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceContact class]];
 }
 
 - (MSGraphServiceDeviceFetcher *)asDevice {
 
-	return [[MSGraphServiceDeviceFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceDevice class]];
+	return [[MSGraphServiceDeviceFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceDevice class]];
 }
 
 - (MSGraphServiceDeviceConfigurationFetcher *)asDeviceConfiguration {
 
-	return [[MSGraphServiceDeviceConfigurationFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceDeviceConfiguration class]];
+	return [[MSGraphServiceDeviceConfigurationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceDeviceConfiguration class]];
 }
 
 - (MSGraphServiceDirectoryLinkChangeFetcher *)asDirectoryLinkChange {
 
-	return [[MSGraphServiceDirectoryLinkChangeFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceDirectoryLinkChange class]];
+	return [[MSGraphServiceDirectoryLinkChangeFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceDirectoryLinkChange class]];
 }
 
 - (MSGraphServiceDirectoryRoleFetcher *)asDirectoryRole {
 
-	return [[MSGraphServiceDirectoryRoleFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceDirectoryRole class]];
+	return [[MSGraphServiceDirectoryRoleFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceDirectoryRole class]];
 }
 
 - (MSGraphServiceDirectoryRoleTemplateFetcher *)asDirectoryRoleTemplate {
 
-	return [[MSGraphServiceDirectoryRoleTemplateFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceDirectoryRoleTemplate class]];
+	return [[MSGraphServiceDirectoryRoleTemplateFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceDirectoryRoleTemplate class]];
 }
 
 - (MSGraphServiceGroupFetcher *)asGroup {
 
-	return [[MSGraphServiceGroupFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceGroup class]];
+	return [[MSGraphServiceGroupFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceGroup class]];
 }
 
 - (MSGraphServiceServicePrincipalFetcher *)asServicePrincipal {
 
-	return [[MSGraphServiceServicePrincipalFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceServicePrincipal class]];
+	return [[MSGraphServiceServicePrincipalFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceServicePrincipal class]];
 }
 
 - (MSGraphServiceTenantDetailFetcher *)asTenantDetail {
 
-	return [[MSGraphServiceTenantDetailFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceTenantDetail class]];
+	return [[MSGraphServiceTenantDetailFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceTenantDetail class]];
 }
 
 @end

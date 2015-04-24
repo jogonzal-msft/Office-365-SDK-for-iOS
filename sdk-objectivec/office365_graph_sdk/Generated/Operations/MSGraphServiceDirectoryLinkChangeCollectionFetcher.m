@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSGraphServiceDirectoryLinkChange class]];
 }
 
-- (NSURLSessionTask *)addDirectoryLinkChange:(MSGraphServiceDirectoryLinkChange*)entity callback:(void (^)(MSGraphServiceDirectoryLinkChange *directoryLinkChange, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSGraphServiceDirectoryLinkChange*)entity callback:(void (^)(MSGraphServiceDirectoryLinkChange *directoryLinkChange, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

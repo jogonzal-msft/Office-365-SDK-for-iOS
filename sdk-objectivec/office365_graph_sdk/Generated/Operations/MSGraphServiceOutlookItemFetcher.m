@@ -28,24 +28,24 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)updateOutlookItem:(id)entity callback:(void (^)(MSGraphServiceOutlookItem *outlookItem, MSODataException *exception))callback {
+- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSGraphServiceOutlookItem *outlookItem, MSODataException *exception))callback {
 
 	return [super updateEntity:entity callback:callback];
 }
 
-- (NSURLSessionTask *)deleteOutlookItem:(void (^)(int status, MSODataException *exception))callback {
+- (NSURLSessionTask *)delete:(void (^)(int status, MSODataException *exception))callback {
 
 	return [super deleteWithCallback:callback];
 }
 
 - (MSGraphServiceMessageFetcher *)asMessage {
 
-	return [[MSGraphServiceMessageFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceMessage class]];
+	return [[MSGraphServiceMessageFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceMessage class]];
 }
 
 - (MSGraphServiceEventFetcher *)asEvent {
 
-	return [[MSGraphServiceEventFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceEvent class]];
+	return [[MSGraphServiceEventFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceEvent class]];
 }
 
 @end

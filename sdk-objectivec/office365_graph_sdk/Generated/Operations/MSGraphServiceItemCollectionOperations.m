@@ -21,7 +21,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @implementation MSGraphServiceItemCollectionOperations
 
-- (NSURLSessionTask *)addWithPath:(NSString *) path nameConflict:(NSString *) nameConflict type:(NSString *) type content:(NSStream *) content callback:(void (^)(MSGraphServiceItem *item, MSODataException *error))callback {
+- (NSURLSessionTask *)addWithPath:(NSString *)path nameConflict:(NSString *)nameConflict type:(NSString *)type content:(NSStream *)content callback:(void (^)(MSGraphServiceItem *item, MSODataException *error))callback {
 
 	
 	NSString *pathString = [self.resolver.jsonSerializer serialize:path property:@"path"];
@@ -66,6 +66,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 	NSURLSessionTask *task = [super oDataExecuteRequest:request 
 										       callback:^(id<MSODataResponse> response, MSODataException *exception) {
+		
 		if (exception == nil) {
 
             callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], exception);
@@ -80,7 +81,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 }
 		
 
-- (NSURLSessionTask *)getByPathWithPath:(NSString *) path callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback {
+- (NSURLSessionTask *)getByPathWithPath:(NSString *)path callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback {
 
 	id<MSODataRequest> request = [super.resolver createODataRequest];
 	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:path,@"path",nil];

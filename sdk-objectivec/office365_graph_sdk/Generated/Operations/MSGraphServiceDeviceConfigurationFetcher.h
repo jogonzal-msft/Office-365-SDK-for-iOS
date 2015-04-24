@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceDeviceConfigurationFetcher : MSODataEntityFetcher<MSGraphServiceDeviceConfigurationFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDeviceConfiguration:(MSGraphServiceDeviceConfiguration *)deviceConfiguration callback:(void (^)(MSGraphServiceDeviceConfiguration *deviceConfiguration, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDeviceConfiguration:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceDeviceConfiguration *)deviceConfiguration callback:(void (^)(MSGraphServiceDeviceConfiguration *deviceConfiguration, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

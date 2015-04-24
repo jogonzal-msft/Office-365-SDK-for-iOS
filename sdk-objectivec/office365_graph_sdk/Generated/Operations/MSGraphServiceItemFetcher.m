@@ -28,12 +28,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)updateItem:(id)entity callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback {
+- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSGraphServiceItem *item, MSODataException *exception))callback {
 
 	return [super updateEntity:entity callback:callback];
 }
 
-- (NSURLSessionTask *)deleteItem:(void (^)(int status, MSODataException *exception))callback {
+- (NSURLSessionTask *)delete:(void (^)(int status, MSODataException *exception))callback {
 
 	return [super deleteWithCallback:callback];
 }
@@ -60,12 +60,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (MSGraphServiceFileFetcher *)asFile {
 
-	return [[MSGraphServiceFileFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceFile class]];
+	return [[MSGraphServiceFileFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceFile class]];
 }
 
 - (MSGraphServiceFolderFetcher *)asFolder {
 
-	return [[MSGraphServiceFolderFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSGraphServiceFolder class]];
+	return [[MSGraphServiceFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServiceFolder class]];
 }
 
 @end

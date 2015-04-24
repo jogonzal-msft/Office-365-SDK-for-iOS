@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceFileAttachmentFetcher : MSODataEntityFetcher<MSGraphServiceFileAttachmentFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateFileAttachment:(MSGraphServiceFileAttachment *)fileAttachment callback:(void (^)(MSGraphServiceFileAttachment *fileAttachment, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteFileAttachment:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceFileAttachment *)fileAttachment callback:(void (^)(MSGraphServiceFileAttachment *fileAttachment, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceSubscribedSkuFetcher : MSODataEntityFetcher<MSGraphServiceSubscribedSkuFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateSubscribedSku:(MSGraphServiceSubscribedSku *)subscribedSku callback:(void (^)(MSGraphServiceSubscribedSku *subscribedSku, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteSubscribedSku:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceSubscribedSku *)subscribedSku callback:(void (^)(MSGraphServiceSubscribedSku *subscribedSku, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

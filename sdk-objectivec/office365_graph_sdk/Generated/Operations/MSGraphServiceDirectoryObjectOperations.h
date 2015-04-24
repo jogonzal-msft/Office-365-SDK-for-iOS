@@ -23,11 +23,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
-- (NSURLSessionTask *)checkMemberGroupsWithGroupIds:(NSString *) groupIds callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback;
+- (NSURLSessionTask *)checkMemberGroupsWithGroupIds:(NSString *)groupIds callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback;
 - (NSURLSessionTask *)checkMemberGroupsRawWithGroupIds:(NSString *) groupIds callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)getMemberGroupsWithSecurityEnabledOnly:(BOOL) securityEnabledOnly callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback;
+- (NSURLSessionTask *)getMemberGroupsWithSecurityEnabledOnly:(BOOL)securityEnabledOnly callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback;
 - (NSURLSessionTask *)getMemberGroupsRawWithSecurityEnabledOnly:(NSString *) securityEnabledOnly callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)getMemberObjectsWithSecurityEnabledOnly:(BOOL) securityEnabledOnly callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback;
+- (NSURLSessionTask *)getMemberObjectsWithSecurityEnabledOnly:(BOOL)securityEnabledOnly callback:(void (^)(NSMutableArray *string, MSODataException *exception))callback;
 - (NSURLSessionTask *)getMemberObjectsRawWithSecurityEnabledOnly:(NSString *) securityEnabledOnly callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 
 @end

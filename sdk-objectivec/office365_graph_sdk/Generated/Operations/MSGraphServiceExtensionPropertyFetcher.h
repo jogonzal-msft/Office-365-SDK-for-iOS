@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceExtensionPropertyFetcher : MSODataEntityFetcher<MSGraphServiceExtensionPropertyFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateExtensionProperty:(MSGraphServiceExtensionProperty *)extensionProperty callback:(void (^)(MSGraphServiceExtensionProperty *extensionProperty, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteExtensionProperty:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceExtensionProperty *)extensionProperty callback:(void (^)(MSGraphServiceExtensionProperty *extensionProperty, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

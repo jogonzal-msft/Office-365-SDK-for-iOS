@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSGraphServiceDirectoryObject class]];
 }
 
-- (NSURLSessionTask *)addDirectoryObject:(MSGraphServiceDirectoryObject*)entity callback:(void (^)(MSGraphServiceDirectoryObject *directoryObject, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSGraphServiceDirectoryObject*)entity callback:(void (^)(MSGraphServiceDirectoryObject *directoryObject, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

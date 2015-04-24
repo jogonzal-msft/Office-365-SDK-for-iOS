@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSGraphServiceDirectoryLinkChangeFetcher : MSODataEntityFetcher<MSGraphServiceDirectoryLinkChangeFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDirectoryLinkChange:(MSGraphServiceDirectoryLinkChange *)directoryLinkChange callback:(void (^)(MSGraphServiceDirectoryLinkChange *directoryLinkChange, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDirectoryLinkChange:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSGraphServiceDirectoryLinkChange *)directoryLinkChange callback:(void (^)(MSGraphServiceDirectoryLinkChange *directoryLinkChange, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end
