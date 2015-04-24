@@ -21,8 +21,10 @@
     if([testName isEqualToString: @"TestCreateSections"]) return [self TestCreateSections:result];
     if([testName isEqualToString: @"TestGetSectionsById"]) return [self TestGetSectionsById:result];
     if([testName isEqualToString: @"TestGetSectionGroups"]) return [self TestGetSectionGroups:result];
+    if([testName isEqualToString: @"TestCreateSectionWithMultipart"]) return [self TestCreateSectionWithMultipart:result];
     if([testName isEqualToString: @"TestGetPages"]) return [self TestGetPages:result];
     if([testName isEqualToString: @"TestSearchPage"]) return [self TestSearchPage:result];
+    if([testName isEqualToString: @"TestPatchPage"]) return [self TestPatchPage:result];
     if([testName isEqualToString: @"TestGetPageContent"]) return [self TestGetPageContent:result];
     if([testName isEqualToString: @"TestCreateSimplePage"]) return [self TestCreateSimplePage:result];
     if([testName isEqualToString: @"TestCreatePageWithEmbeddedWebImage"]) return [self TestCreatePageWithEmbeddedWebImage:result];
@@ -43,8 +45,10 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateSections" :@"Create sections" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetSectionsById" :@"Get sections by id" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetSectionGroups" :@"Get sections groups" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCreateSectionWithMultipart" :@"Create sections with Multipart" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetPages" :@"Get pages" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSearchPage" :@"Search pages" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestPatchPage" :@"Patch page" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetPageContent" :@"Get page content" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateSimplePage" :@"Create simple page" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreatePageWithEmbeddedWebImage" :@"Create page with embedded web img" ]];
@@ -68,7 +72,7 @@
         
         test.ExecutionMessages = [NSMutableArray array];
         if([notebooks count] == 0){
-            [[[self.Client getnotebooks] addNotebook:newNotebook callback:^(MSOneNoteApiNotebook *notebook, MSODataException *e) {
+            [[[self.Client getnotebooks] add:newNotebook callback:^(MSOneNoteApiNotebook *notebook, MSODataException *e) {
                 BOOL passed = false;
                 NSString* message = @"";
                 
@@ -208,7 +212,50 @@
     return task;
 }
 
--(NSURLSessionTask*)TestCreateSections:(void (^) (Test*))result{
+- (NSURLSessionTask *)TestCreateSectionWithMultipart:(void(^)(Test *))result {
+
+    NSString *simpleHtml = [NSString stringWithFormat: @"<html><head><title>A simple page created from basic HTML-formatted text</title><meta name=\"created\" content=\"%@\" /></head><body><p>This is a page that just contains some simple <i>formatted</i> <b>text</b></p><p>Here is a <a href=\"http://www.microsoft.com\">link</a></p></body></html>", @"2013-06-11T12:45:00.000-8:00"];
+    
+    NSMutableArray*multiparElements = [[NSMutableArray alloc] init];
+    MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
+    [multiparElements addObject:m1];
+    
+    NSURLSessionTask *task = [[[self.Client getsections] top:1]
+                              readWithCallback:^(NSArray<MSOneNoteApiSection> *sections, MSODataException *error) {
+                                  
+        [[[[[self.Client getsections] getById:((MSOneNoteApiSection *)[sections objectAtIndex:0]).id] getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *exception) {
+        
+            BOOL passed = false;
+            NSString* message = @"";
+            Test *test = [Test alloc];
+            test.ExecutionMessages = [NSMutableArray array];
+            
+
+            if (error == nil && [[response data] length] > 0) {
+                
+                passed = true;
+                message = @"Ok - ";
+            }
+            else {
+                
+                message = @"Not - ";
+                
+                if (error!= nil)
+                    message = [message stringByAppendingString: [error localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+        
+        }] resume];
+    }];
+    
+    return task;
+}
+
+- (NSURLSessionTask *)TestCreateSections:(void (^) (Test*))result {
     
     NSURLSessionTask *task = [[[[self.Client getnotebooks] filter:@"name eq 'Test notebook iOS'"] top:1] readWithCallback:^(NSArray<MSOneNoteApiNotebook> *notebooks, MSODataException *error) {
         Test *test = [Test alloc];
@@ -221,7 +268,7 @@
             
             [[[[[self.Client getnotebooks]
                 getById:[[notebooks objectAtIndex:0] id]] getsections]
-             addSection:newSection callback:^(MSOneNoteApiSection *addedSection, MSODataException *e) {
+             add:newSection callback:^(MSOneNoteApiSection *addedSection, MSODataException *e) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -449,12 +496,12 @@
     
     NSString *simpleHtml = [NSString stringWithFormat: @"<html><head><title>A simple page created from basic HTML-formatted text</title><meta name=\"created\" content=\"%@\" /></head><body><p>This is a page that just contains some simple <i>formatted</i> <b>text</b></p><p>Here is a <a href=\"http://www.microsoft.com\">link</a></p></body></html>", @"2013-06-11T12:45:00.000-8:00"];
     
-    NSMutableArray<MSODataMultiPartElement> *multiparElements = [[NSMutableArray alloc] init];
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
     MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
     [multiparElements addObject:m1];
     
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -527,6 +574,62 @@
     return task;
 }
 
+- (NSURLSessionTask *)TestPatchPage:(void (^) (Test*))result{
+   
+    NSString *imagePartName = @"sampleImage1";
+    NSString *simpleHtml = [NSString stringWithFormat: @"<html><head><title>A simple page created with an image on it</title>\
+                            <meta name=\"created\" content=\"%@\" />\
+                            </head><body><h1>This is a page with an image on it</h1><img src=\"name:%@\" alt=\"A beautiful logo\"/></body></html>", [self getSerializedCurrentDate],imagePartName];
+    
+    UIImage *someImage = [UIImage imageNamed: @"office365"];
+    NSData *contentBytes = UIImagePNGRepresentation(someImage);
+    
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
+    MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
+    MSODataMultiPartElement *m2 = [[MSODataMultiPartElement alloc] initWithName:imagePartName andContentType:@"image/png" andContent:contentBytes];
+    [multiparElements addObject:m1];
+    [multiparElements addObject:m2];
+    
+    NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+        
+        [[[[self.Client getpages] top:1] readWithCallback:^(NSArray<MSOneNoteApiPage> *pages, MSODataException *exception) {
+           
+            MSOneNoteApiPatchContentCommand *c = [[MSOneNoteApiPatchContentCommand alloc] init];
+            c.action = MSOneNoteApi_PatchActionType_Append;
+            c.content = @"<p>Append</p>";
+            c.target = @"body";
+            NSArray* commands = [NSArray arrayWithObject:c];
+            [[[[self.Client getpages] getById:[[pages objectAtIndex:0] id]].operations patchContentWithCommands:((NSArray<MSOneNoteApiPatchContentCommand> *)commands) callback:^(int returnValue, MSODataException *exception) {
+                
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                
+                test.ExecutionMessages = [NSMutableArray array];
+                NSString* message = @"";
+                if(error == nil && returnValue == 0)
+                {
+                    passed = true;
+                    message = @"Ok - ";
+                }else{
+                    message = @"Not - ";
+                    if(error!= nil)
+                        message = [message stringByAppendingString: [error localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                result(test);
+                
+            }] resume];
+        }] resume];
+    }];
+    
+    return task;
+
+}
+
 -(NSURLSessionTask*)TestCreatePageWithEmbeddedWebImage:(void (^) (Test*))result{
     
     NSString *embeddedPartName = @"embedded1";
@@ -585,13 +688,13 @@
     UIImage * someImage = [UIImage imageNamed: @"office365"];
     NSData *contentBytes = UIImagePNGRepresentation(someImage);
     
-    NSMutableArray<MSODataMultiPartElement> *multiparElements = [[NSMutableArray alloc] init];
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
     MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
     MSODataMultiPartElement *m2 = [[MSODataMultiPartElement alloc] initWithName:imagePartName andContentType:@"image/png" andContent:contentBytes];
     [multiparElements addObject:m1];
     [multiparElements addObject:m2];
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement>  *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -669,11 +772,11 @@
                             </body>\
                             </html>",[self getSerializedCurrentDate]];
     
-    NSMutableArray<MSODataMultiPartElement> *multiparElements = [[NSMutableArray alloc] init];
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
     MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
     [multiparElements addObject:m1];
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -709,13 +812,13 @@
     
     NSData *attachmentContent = [@"Dummy content" dataUsingEncoding: NSUTF8StringEncoding];
     
-    NSMutableArray<MSODataMultiPartElement> *multiparElements = [[NSMutableArray alloc] init];
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
     MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:pageHtml];
     MSODataMultiPartElement *m2 = [[MSODataMultiPartElement alloc] initWithName:attachmentPartName andContentType:@"text/plain" andContent:attachmentContent];
     [multiparElements addObject:m1];
     [multiparElements addObject:m2];
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];

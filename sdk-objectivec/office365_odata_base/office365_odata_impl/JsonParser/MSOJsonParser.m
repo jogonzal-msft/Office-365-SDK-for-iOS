@@ -25,6 +25,36 @@
     return self;
 }
 
+-(NSString *)toArrayJsonString:(id)array propertyName:(NSString*)name{
+    
+    @try {
+        self.jsonResult = [[NSMutableString alloc] init];//[[NSMutableString alloc] initWithFormat:@"{\"%@\": [", name];
+        NSMutableString *objectString = [NSMutableString stringWithFormat:@"{\"%@\": [", name];
+        
+        for (id o in array) {
+            
+            [self getString :o];
+            NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
+            NSString * result =  [[NSMutableString alloc] initWithFormat:@"{%@},",subString];
+            
+            [objectString appendString:result];
+        }
+        
+        NSString *substring = [objectString substringWithRange:NSMakeRange(0, [objectString length] -1)];
+        NSString * r =  [[NSMutableString alloc] initWithFormat:@"%@]}",substring];
+        
+        return r;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Error parsing object '%@'", exception.description);
+        return nil;
+    }
+    @finally {
+        
+    }
+    
+}
+
 -(NSString*)toJsonString : (id)object{
     
     @try {
@@ -84,6 +114,9 @@
         return jsonResult;
     }
     
+    if([object isKindOfClass:NSArray.class]) {
+        return [self toArrayJsonString:object propertyName: name];
+    }
     return [self toJsonString:object];
 }
 
@@ -196,7 +229,13 @@
                 else if(property.isEnum) {
                     result = [object valueForKey:property.Name];
                     if(result != nil){
-                        [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
+                        SEL method = NSSelectorFromString([[NSString alloc] initWithFormat:@"set%@String:", property.Name]);
+                        
+                        if([object respondsToSelector:method]){
+                            [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
+                        }else{
+                            [self.jsonResult appendFormat:@"\"%@\" : %@,", property.Name, result];
+                        }
                     }
                 }
                 else {
@@ -380,12 +419,17 @@
         
         if([property isEnum]) {
             
-            NSString* method = [[NSString alloc] initWithFormat:@"set%@String:", property.Name];
+            SEL method = NSSelectorFromString([[NSString alloc] initWithFormat:@"set%@String:", property.Name]);
             
+            if([returnType respondsToSelector:method]){
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            [returnType performSelector: NSSelectorFromString (method) withObject:value];
+                [returnType performSelector: method withObject:value];
 #pragma clang diagnostic pop
+            }else{
+                
+                [returnType setValue:value forKeyPath:property.Name];
+            }
         }
         else{
             [returnType setValue:value forKeyPath:property.Name];

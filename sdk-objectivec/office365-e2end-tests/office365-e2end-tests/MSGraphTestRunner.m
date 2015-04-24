@@ -1064,7 +1064,7 @@
 -(NSURLSessionTask*)TestCreateEvents:(void (^) (Test*))result{
     MSGraphServiceEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] addEvent:event callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] add:event callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
         
         BOOL passed = false;
         
@@ -1087,7 +1087,7 @@
         [test.ExecutionMessages addObject:message];
         
         //Cleanup
-        [[[[[[self.Client getusers] getById:self.TestMail]getEvents]getById:addedEvent.Id]deleteEvent:^(int status, MSODataException *error) {
+        [[[[[[self.Client getusers] getById:self.TestMail]getEvents]getById:addedEvent.Id] delete:^(int status, MSODataException *error) {
             if(error!= nil)
                 NSLog(@"Error: %@", error);
         }]resume];
@@ -1101,12 +1101,12 @@
 -(NSURLSessionTask*)TestUpdateEvents:(void (^) (Test*))result{
     MSGraphServiceEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] addEvent:event callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] add:event callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
         
         NSString *updatedSubject = [@"Updated" stringByAppendingString:event.Subject];
         event.Subject = updatedSubject;
         // Update Event
-        [[[[[[self.Client getusers] getById:self.TestMail] getEvents] getById:addedEvent.Id]updateEvent:event callback:^(MSGraphServiceEvent *updatedEvent, MSODataException *error) {
+        [[[[[[self.Client getusers] getById:self.TestMail] getEvents] getById:addedEvent.Id]update:event callback:^(MSGraphServiceEvent *updatedEvent, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1128,7 +1128,7 @@
             [test.ExecutionMessages addObject:message];
             
             //Cleanup
-            [[[[[[self.Client getusers] getById:self.TestMail]getEvents]getById:addedEvent.Id]deleteEvent:^(int status, MSODataException *error) {
+            [[[[[[self.Client getusers] getById:self.TestMail]getEvents]getById:addedEvent.Id]delete:^(int status, MSODataException *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];
@@ -1143,9 +1143,9 @@
 -(NSURLSessionTask*)TestDeleteEvents:(void (^) (Test*))result{
     MSGraphServiceEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] addEvent:event callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] add:event callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
         //Delete event
-        [[[[[[self.Client getusers] getById:self.TestMail]getEvents]getById:addedEvent.Id]deleteEvent:^(int status, MSODataException *error) {
+        [[[[[[self.Client getusers] getById:self.TestMail]getEvents]getById:addedEvent.Id]delete:^(int status, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1176,7 +1176,7 @@
 
 -(NSURLSessionTask*)TestGetCalendarView:(void (^) (Test*))result{
     MSGraphServiceEvent *newEvent = [self getSampleEvent];
-    NSURLSessionTask* task = [[[[self.Client getusers] getById:self.TestMail]  getEvents] addEvent:newEvent callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask* task = [[[[self.Client getusers] getById:self.TestMail]  getEvents] add:newEvent callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
         
         [[[[[[[self.Client getusers] getById:self.TestMail] getCalendarView] addCustomParametersWithName:@"startdatetime" value:newEvent.Start] addCustomParametersWithName:@"enddatetime" value:newEvent.End ] readWithCallback:^(NSArray<MSGraphServiceEvent> *events, MSODataException *error) {
             
@@ -1201,7 +1201,7 @@
             [test.ExecutionMessages addObject:message];
             
             //Cleanup
-            [[[[[[self.Client getusers] getById:self.TestMail] getEvents]getById:addedEvent.Id] deleteEvent:^(int status, MSODataException *error) {
+            [[[[[[self.Client getusers] getById:self.TestMail] getEvents]getById:addedEvent.Id] delete:^(int status, MSODataException *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];

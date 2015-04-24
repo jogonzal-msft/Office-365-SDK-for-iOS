@@ -103,7 +103,7 @@
         
         MSOneDriveServicesFile *fileToDelete = [self.Files objectAtIndex:indexPath.row];
         
-        [[[[self.client getfiles] getById:fileToDelete.id] deleteItem:^(int status, NSError *error) {
+        [[[[self.client getfiles] getById:fileToDelete.id] delete:^(int status, NSError *error) {
             
             dispatch_async(dispatch_get_main_queue(),
                            ^{

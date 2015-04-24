@@ -78,7 +78,7 @@
 -(NSURLSessionTask*)TestGetFileById:(void (^) (Test*))result{
     MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
         //Get item
         [[[[self.Client getfiles] getById:addedItem.id]readWithCallback:^(MSOneDriveServicesItem *item, MSODataException *error) {
             
@@ -123,7 +123,7 @@
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
         //Put content to file
         [[[[[self.Client getfiles]getById:addedItem.id] asFile] putContent:content callback:^(NSInteger putContentResult, MSODataException *error) {
             //Get file content
@@ -175,7 +175,7 @@
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
         //Put content to file
         NSInputStream *streamContent = [[NSInputStream alloc] initWithData:content];
         NSInteger size = content.length;
@@ -231,7 +231,7 @@
     NSData *updatedContent = [@"Updated test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
         //Put content to file
         [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content callback:^(NSInteger putContentResult, MSODataException *error) {
             [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent
@@ -316,9 +316,9 @@
     MSOneDriveServicesItem *itemToAdd2 = [self GetFileItem];
     
     // Add new item
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
         //Add second item
-        [[[self.Client getfiles] addEntity:itemToAdd2 callback:^(MSOneDriveServicesItem *addedItem2, MSODataException *e) {
+        [[[self.Client getfiles] add:itemToAdd2 callback:^(MSOneDriveServicesItem *addedItem2, MSODataException *e) {
             //Get top 1 item
             [[[[self.Client getfiles] top:1]readWithCallback:^(NSArray<MSOneDriveServicesItem> *items, MSODataException *error) {
                 BOOL passed = false;
@@ -372,7 +372,7 @@
     
     MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
         //Get item
         [[[[[self.Client getfiles] select:@"name,dateTimeCreated"] top:1] readWithCallback:^(NSArray<MSOneDriveServicesItem> *items, MSODataException *error) {
             
@@ -425,7 +425,7 @@
     
     MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
         //Delete item
         
         [[[[[self.Client getfiles] getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSODataException *error) {

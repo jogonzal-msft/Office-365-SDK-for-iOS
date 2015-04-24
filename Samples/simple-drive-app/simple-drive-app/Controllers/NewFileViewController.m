@@ -38,7 +38,7 @@
     
     NSData* body = [self.txtBody.text dataUsingEncoding:NSUTF8StringEncoding];
     
-    [[[self.client getfiles] addEntity:item callback:^(MSOneDriveServicesItem *item, NSError *e) {
+    [[[self.client getfiles] add:item callback:^(MSOneDriveServicesItem *item, NSError *e) {
         __block NSString* _id = item.id;
         
         [[[[[self.client getfiles] getById:_id] asFile] putContent:body callback:^(NSInteger result, NSError *error) {
