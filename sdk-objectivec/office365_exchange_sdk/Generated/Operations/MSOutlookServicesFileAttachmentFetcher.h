@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSOutlookServicesFileAttachmentFetcher : MSODataEntityFetcher<MSOutlookServicesFileAttachmentFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateFileAttachment:(MSOutlookServicesFileAttachment *)fileAttachment callback:(void (^)(MSOutlookServicesFileAttachment *fileAttachment, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteFileAttachment:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSOutlookServicesFileAttachment *)fileAttachment callback:(void (^)(MSOutlookServicesFileAttachment *fileAttachment, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

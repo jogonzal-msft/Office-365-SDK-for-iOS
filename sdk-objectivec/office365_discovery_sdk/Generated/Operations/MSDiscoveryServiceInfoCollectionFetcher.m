@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSDiscoveryServiceInfo class]];
 }
 
-- (NSURLSessionTask *)addServiceInfo:(MSDiscoveryServiceInfo*)entity callback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSDiscoveryServiceInfo*)entity callback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

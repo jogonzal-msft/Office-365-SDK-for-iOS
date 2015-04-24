@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSOutlookServicesCalendar class]];
 }
 
-- (NSURLSessionTask *)addCalendar:(MSOutlookServicesCalendar*)entity callback:(void (^)(MSOutlookServicesCalendar *calendar, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSOutlookServicesCalendar*)entity callback:(void (^)(MSOutlookServicesCalendar *calendar, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

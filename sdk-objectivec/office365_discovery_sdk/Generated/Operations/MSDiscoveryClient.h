@@ -23,7 +23,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @interface MSDiscoveryClient : MSODataBaseContainer
 
-- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSODataDependencyResolver>)resolver;
+- (instancetype)initWithUrl:(NSString *)url dependencyResolver:(id<MSODataDependencyResolver>)resolver;
 -(MSDiscoveryServiceInfoCollectionFetcher*) getallServices;
 -(MSDiscoveryServiceInfoCollectionFetcher*) getservices;
 

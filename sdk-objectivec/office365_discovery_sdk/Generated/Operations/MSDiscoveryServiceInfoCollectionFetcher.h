@@ -40,7 +40,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSDiscoveryServiceInfoFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addServiceInfo:(MSDiscoveryServiceInfo *)entity callback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSDiscoveryServiceInfo *)entity callback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *e))callback;
 
 @end
 

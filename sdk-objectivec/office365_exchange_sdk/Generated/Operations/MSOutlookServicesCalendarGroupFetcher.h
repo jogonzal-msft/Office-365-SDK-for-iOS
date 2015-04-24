@@ -45,7 +45,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSOutlookServicesCalendarGroupFetcher : MSODataEntityFetcher<MSOutlookServicesCalendarGroupFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateCalendarGroup:(MSOutlookServicesCalendarGroup *)calendarGroup callback:(void (^)(MSOutlookServicesCalendarGroup *calendarGroup, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteCalendarGroup:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSOutlookServicesCalendarGroup *)calendarGroup callback:(void (^)(MSOutlookServicesCalendarGroup *calendarGroup, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

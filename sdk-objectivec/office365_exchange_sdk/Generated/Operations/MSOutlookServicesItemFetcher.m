@@ -28,29 +28,29 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)updateItem:(id)entity callback:(void (^)(MSOutlookServicesItem *item, MSODataException *exception))callback {
+- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSOutlookServicesItem *item, MSODataException *exception))callback {
 
 	return [super updateEntity:entity callback:callback];
 }
 
-- (NSURLSessionTask *)deleteItem:(void (^)(int status, MSODataException *exception))callback {
+- (NSURLSessionTask *)delete:(void (^)(int status, MSODataException *exception))callback {
 
 	return [super deleteWithCallback:callback];
 }
 
 - (MSOutlookServicesMessageFetcher *)asMessage {
 
-	return [[MSOutlookServicesMessageFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesMessage class]];
+	return [[MSOutlookServicesMessageFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesMessage class]];
 }
 
 - (MSOutlookServicesEventFetcher *)asEvent {
 
-	return [[MSOutlookServicesEventFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesEvent class]];
+	return [[MSOutlookServicesEventFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesEvent class]];
 }
 
 - (MSOutlookServicesContactFetcher *)asContact {
 
-	return [[MSOutlookServicesContactFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesContact class]];
+	return [[MSOutlookServicesContactFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesContact class]];
 }
 
 @end

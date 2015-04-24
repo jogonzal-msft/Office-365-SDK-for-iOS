@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSOutlookServicesAttachmentCollectionFetcher>)select:(NSString *)params;
 - (id<MSOutlookServicesAttachmentCollectionFetcher>)filter:(NSString *)params;
+- (id<MSOutlookServicesAttachmentCollectionFetcher>)search:(NSString *)params;
 - (id<MSOutlookServicesAttachmentCollectionFetcher>)top:(int)value;
 - (id<MSOutlookServicesAttachmentCollectionFetcher>)skip:(int)value;
 - (id<MSOutlookServicesAttachmentCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSOutlookServicesAttachmentFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addAttachment:(MSOutlookServicesAttachment *)entity callback:(void (^)(MSOutlookServicesAttachment *attachment, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSOutlookServicesAttachment *)entity callback:(void (^)(MSOutlookServicesAttachment *attachment, MSODataException *e))callback;
 
 @end
 

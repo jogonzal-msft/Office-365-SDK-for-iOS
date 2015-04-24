@@ -43,7 +43,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSOutlookServicesEventMessageFetcher : MSODataEntityFetcher<MSOutlookServicesEventMessageFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateEventMessage:(MSOutlookServicesEventMessage *)eventMessage callback:(void (^)(MSOutlookServicesEventMessage *eventMessage, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteEventMessage:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSOutlookServicesEventMessage *)eventMessage callback:(void (^)(MSOutlookServicesEventMessage *eventMessage, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

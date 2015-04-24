@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSOutlookServicesContactCollectionFetcher>)select:(NSString *)params;
 - (id<MSOutlookServicesContactCollectionFetcher>)filter:(NSString *)params;
+- (id<MSOutlookServicesContactCollectionFetcher>)search:(NSString *)params;
 - (id<MSOutlookServicesContactCollectionFetcher>)top:(int)value;
 - (id<MSOutlookServicesContactCollectionFetcher>)skip:(int)value;
 - (id<MSOutlookServicesContactCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSOutlookServicesContactFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addContact:(MSOutlookServicesContact *)entity callback:(void (^)(MSOutlookServicesContact *contact, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSOutlookServicesContact *)entity callback:(void (^)(MSOutlookServicesContact *contact, MSODataException *e))callback;
 
 @end
 

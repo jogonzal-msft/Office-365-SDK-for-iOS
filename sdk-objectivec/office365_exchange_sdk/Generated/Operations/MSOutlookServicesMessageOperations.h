@@ -24,9 +24,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
-- (NSURLSessionTask *)copyWithDestinationId:(NSString *) destinationId callback:(void (^)(MSOutlookServicesMessage *message, MSODataException *exception))callback;
+- (NSURLSessionTask *)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookServicesMessage *message, MSODataException *exception))callback;
 - (NSURLSessionTask *)copyRawWithDestinationId:(NSString *) destinationId callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)moveWithDestinationId:(NSString *) destinationId callback:(void (^)(MSOutlookServicesMessage *message, MSODataException *exception))callback;
+- (NSURLSessionTask *)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookServicesMessage *message, MSODataException *exception))callback;
 - (NSURLSessionTask *)moveRawWithDestinationId:(NSString *) destinationId callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)createReplyWithCallback:(void (^)(MSOutlookServicesMessage *message, MSODataException *exception))callback;
 - (NSURLSessionTask *)createReplyRawWithCallback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
@@ -34,11 +34,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 - (NSURLSessionTask *)createReplyAllRawWithCallback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)createForwardWithCallback:(void (^)(MSOutlookServicesMessage *message, MSODataException *exception))callback;
 - (NSURLSessionTask *)createForwardRawWithCallback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)replyWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)replyWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)replyRawWithComment:(NSString *) comment callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)replyAllWithComment:(NSString *) comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)replyAllWithComment:(NSString *)comment callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)replyAllRawWithComment:(NSString *) comment callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)forwardWithComment:(NSString *) comment toRecipients:(MSOutlookServicesRecipient *) toRecipients callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)forwardWithComment:(NSString *)comment toRecipients:(MSOutlookServicesRecipient *)toRecipients callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)forwardRawWithComment:(NSString *) comment toRecipients:(NSString *) toRecipients callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)sendWithCallback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)sendRawWithCallback:(void(^)(NSString *returnValue, MSODataException *exception))callback;

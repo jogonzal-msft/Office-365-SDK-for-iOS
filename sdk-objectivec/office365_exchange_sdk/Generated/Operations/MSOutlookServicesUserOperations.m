@@ -25,11 +25,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)sendMailWithMessage:(MSOutlookServicesMessage *) message saveToSentItems:(BOOL ) saveToSentItems callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)sendMailWithMessage:(MSOutlookServicesMessage *)message saveToSentItems:(BOOL )saveToSentItems callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *messageString = [self.resolver.jsonSerializer serialize:message property:@"Message"];
 	NSString *saveToSentItemsString = [self.resolver.jsonSerializer serialize:(saveToSentItems ? @"true" : @"false") property:@"SaveToSentItems"];
-    
 	NSURLSessionTask *task = [self sendMailRawWithMessage:messageString saveToSentItems:saveToSentItemsString callback:^(NSString *returnValue, MSODataException *exception) {
        
 	   if (exception == nil) {
@@ -56,6 +55,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	NSData* payload = [[MSODataBaseContainerHelper generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
 
 	[request setContent:payload];
+
 
 	[request.url appendPathComponent:@"SendMail"];
 	[request setVerb:HTTP_VERB_POST];

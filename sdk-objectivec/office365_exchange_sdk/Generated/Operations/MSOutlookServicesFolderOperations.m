@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)copyWithDestinationId:(NSString *) destinationId callback:(void (^)(MSOutlookServicesFolder *folder, MSODataException *exception))callback {
+- (NSURLSessionTask *)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookServicesFolder *folder, MSODataException *exception))callback {
 	
 	NSString *destinationIdString = [self.resolver.jsonSerializer serialize:destinationId property:@"DestinationId"];
 	NSURLSessionTask *task = [self copyRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSODataException *exception) {
@@ -74,7 +74,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return task;
 }
     				
-- (NSURLSessionTask *)moveWithDestinationId:(NSString *) destinationId callback:(void (^)(MSOutlookServicesFolder *folder, MSODataException *exception))callback {
+- (NSURLSessionTask *)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookServicesFolder *folder, MSODataException *exception))callback {
 	
 	NSString *destinationIdString = [self.resolver.jsonSerializer serialize:destinationId property:@"DestinationId"];
 	NSURLSessionTask *task = [self moveRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSODataException *exception) {

@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSOutlookServicesCalendarGroupCollectionFetcher>)select:(NSString *)params;
 - (id<MSOutlookServicesCalendarGroupCollectionFetcher>)filter:(NSString *)params;
+- (id<MSOutlookServicesCalendarGroupCollectionFetcher>)search:(NSString *)params;
 - (id<MSOutlookServicesCalendarGroupCollectionFetcher>)top:(int)value;
 - (id<MSOutlookServicesCalendarGroupCollectionFetcher>)skip:(int)value;
 - (id<MSOutlookServicesCalendarGroupCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSOutlookServicesCalendarGroupFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addCalendarGroup:(MSOutlookServicesCalendarGroup *)entity callback:(void (^)(MSOutlookServicesCalendarGroup *calendarGroup, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSOutlookServicesCalendarGroup *)entity callback:(void (^)(MSOutlookServicesCalendarGroup *calendarGroup, MSODataException *e))callback;
 
 @end
 

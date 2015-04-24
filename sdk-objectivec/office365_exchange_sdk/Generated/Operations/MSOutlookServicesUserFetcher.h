@@ -73,7 +73,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSOutlookServicesUserFetcher : MSODataEntityFetcher<MSOutlookServicesUserFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateUser:(MSOutlookServicesUser *)user callback:(void (^)(MSOutlookServicesUser *user, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteUser:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSOutlookServicesUser *)user callback:(void (^)(MSOutlookServicesUser *user, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

@@ -24,7 +24,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
-- (NSURLSessionTask *)sendMailWithMessage:(MSOutlookServicesMessage *) message saveToSentItems:(BOOL ) saveToSentItems callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)sendMailWithMessage:(MSOutlookServicesMessage *)message saveToSentItems:(BOOL )saveToSentItems callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)sendMailRawWithMessage:(NSString *) message saveToSentItems:(NSString *) saveToSentItems callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 
 @end

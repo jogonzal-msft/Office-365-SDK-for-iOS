@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSOutlookServicesEvent class]];
 }
 
-- (NSURLSessionTask *)addEvent:(MSOutlookServicesEvent*)entity callback:(void (^)(MSOutlookServicesEvent *event, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSOutlookServicesEvent*)entity callback:(void (^)(MSOutlookServicesEvent *event, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

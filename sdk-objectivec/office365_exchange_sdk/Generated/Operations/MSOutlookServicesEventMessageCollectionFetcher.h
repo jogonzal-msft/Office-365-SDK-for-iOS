@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSOutlookServicesEventMessageCollectionFetcher>)select:(NSString *)params;
 - (id<MSOutlookServicesEventMessageCollectionFetcher>)filter:(NSString *)params;
+- (id<MSOutlookServicesEventMessageCollectionFetcher>)search:(NSString *)params;
 - (id<MSOutlookServicesEventMessageCollectionFetcher>)top:(int)value;
 - (id<MSOutlookServicesEventMessageCollectionFetcher>)skip:(int)value;
 - (id<MSOutlookServicesEventMessageCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSOutlookServicesEventMessageFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addEventMessage:(MSOutlookServicesEventMessage *)entity callback:(void (^)(MSOutlookServicesEventMessage *eventMessage, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSOutlookServicesEventMessage *)entity callback:(void (^)(MSOutlookServicesEventMessage *eventMessage, MSODataException *e))callback;
 
 @end
 

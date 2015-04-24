@@ -28,49 +28,49 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)updateEntity:(id)entity callback:(void (^)(MSOutlookServicesEntity *entity, MSODataException *exception))callback {
+- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSOutlookServicesEntity *entity, MSODataException *exception))callback {
 
 	return [super updateEntity:entity callback:callback];
 }
 
-- (NSURLSessionTask *)deleteEntity:(void (^)(int status, MSODataException *exception))callback {
+- (NSURLSessionTask *)delete:(void (^)(int status, MSODataException *exception))callback {
 
 	return [super deleteWithCallback:callback];
 }
 
 - (MSOutlookServicesAttachmentFetcher *)asAttachment {
 
-	return [[MSOutlookServicesAttachmentFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesAttachment class]];
+	return [[MSOutlookServicesAttachmentFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesAttachment class]];
 }
 
 - (MSOutlookServicesItemFetcher *)asItem {
 
-	return [[MSOutlookServicesItemFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesItem class]];
+	return [[MSOutlookServicesItemFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesItem class]];
 }
 
 - (MSOutlookServicesUserFetcher *)asUser {
 
-	return [[MSOutlookServicesUserFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesUser class]];
+	return [[MSOutlookServicesUserFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesUser class]];
 }
 
 - (MSOutlookServicesFolderFetcher *)asFolder {
 
-	return [[MSOutlookServicesFolderFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesFolder class]];
+	return [[MSOutlookServicesFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesFolder class]];
 }
 
 - (MSOutlookServicesCalendarFetcher *)asCalendar {
 
-	return [[MSOutlookServicesCalendarFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesCalendar class]];
+	return [[MSOutlookServicesCalendarFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesCalendar class]];
 }
 
 - (MSOutlookServicesCalendarGroupFetcher *)asCalendarGroup {
 
-	return [[MSOutlookServicesCalendarGroupFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesCalendarGroup class]];
+	return [[MSOutlookServicesCalendarGroupFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesCalendarGroup class]];
 }
 
 - (MSOutlookServicesContactFolderFetcher *)asContactFolder {
 
-	return [[MSOutlookServicesContactFolderFetcher alloc] initWithUrl:self.urlComponent parent:self asClass:[MSOutlookServicesContactFolder class]];
+	return [[MSOutlookServicesContactFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookServicesContactFolder class]];
 }
 
 @end

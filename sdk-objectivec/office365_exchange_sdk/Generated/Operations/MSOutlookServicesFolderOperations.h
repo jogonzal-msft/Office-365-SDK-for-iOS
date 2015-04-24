@@ -24,9 +24,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
-- (NSURLSessionTask *)copyWithDestinationId:(NSString *) destinationId callback:(void (^)(MSOutlookServicesFolder *folder, MSODataException *exception))callback;
+- (NSURLSessionTask *)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookServicesFolder *folder, MSODataException *exception))callback;
 - (NSURLSessionTask *)copyRawWithDestinationId:(NSString *) destinationId callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
-- (NSURLSessionTask *)moveWithDestinationId:(NSString *) destinationId callback:(void (^)(MSOutlookServicesFolder *folder, MSODataException *exception))callback;
+- (NSURLSessionTask *)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookServicesFolder *folder, MSODataException *exception))callback;
 - (NSURLSessionTask *)moveRawWithDestinationId:(NSString *) destinationId callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 
 @end
