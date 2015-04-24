@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (NSURLSessionTask *)patchContentWithCommands:(MSOneNoteApiPatchContentCommand *) commands callback:(void (^)(int returnValue, MSODataException *exception))callback {
+- (NSURLSessionTask *)patchContentWithCommands:(MSOneNoteApiPatchContentCommand *)commands callback:(void (^)(int returnValue, MSODataException *exception))callback {
 	
 	NSString *commandsString = [self.resolver.jsonSerializer serialize:commands property:@"commands"];
 	NSURLSessionTask *task = [self patchContentRawWithCommands:commandsString callback:^(NSString *returnValue, MSODataException *exception) {

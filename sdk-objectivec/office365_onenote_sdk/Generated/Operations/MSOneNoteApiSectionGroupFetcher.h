@@ -52,7 +52,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSOneNoteApiSectionGroupFetcher : MSODataEntityFetcher<MSOneNoteApiSectionGroupFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateSectionGroup:(MSOneNoteApiSectionGroup *)sectionGroup callback:(void (^)(MSOneNoteApiSectionGroup *sectionGroup, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteSectionGroup:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSOneNoteApiSectionGroup *)sectionGroup callback:(void (^)(MSOneNoteApiSectionGroup *sectionGroup, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

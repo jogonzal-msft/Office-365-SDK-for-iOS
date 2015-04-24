@@ -41,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSOneNoteApiResourceFetcher : MSODataMediaEntityFetcher<MSOneNoteApiResourceFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateResource:(MSOneNoteApiResource *)resource callback:(void (^)(MSOneNoteApiResource *resource, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteResource:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSOneNoteApiResource *)resource callback:(void (^)(MSOneNoteApiResource *resource, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 * The header for type MSOneNoteApiNotebookFetcher.
 */
 
-@protocol MSOneNoteApiNotebookFetcher<MSODataEntityFetcher, MSODataMultipartCollectionFetcher>
+@protocol MSOneNoteApiNotebookFetcher<MSODataEntityFetcher>
 
 @optional
 
@@ -49,7 +49,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSOneNoteApiNotebookFetcher : MSODataEntityFetcher<MSOneNoteApiNotebookFetcher>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateNotebook:(MSOneNoteApiNotebook *)notebook callback:(void (^)(MSOneNoteApiNotebook *notebook, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteNotebook:(void (^)(int status, MSODataException *exception))callback;
+- (NSURLSessionTask *) update:(MSOneNoteApiNotebook *)notebook callback:(void (^)(MSOneNoteApiNotebook *notebook, MSODataException *error))callback;
+- (NSURLSessionTask *) delete:(void (^)(int status, MSODataException *exception))callback;
 
 @end

@@ -23,7 +23,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
-- (NSURLSessionTask *)patchContentWithCommands:(MSOneNoteApiPatchContentCommand *) commands callback:(void (^)(int returnValue, MSODataException *exception))callback;
+- (NSURLSessionTask *)patchContentWithCommands:(MSOneNoteApiPatchContentCommand *)commands callback:(void (^)(int returnValue, MSODataException *exception))callback;
 - (NSURLSessionTask *)patchContentRawWithCommands:(NSString *) commands callback:(void(^)(NSString *returnValue, MSODataException *exception))callback;
 
 @end

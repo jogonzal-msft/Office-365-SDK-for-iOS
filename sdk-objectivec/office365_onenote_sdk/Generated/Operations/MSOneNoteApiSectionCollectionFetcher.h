@@ -29,6 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (id<MSOneNoteApiSectionCollectionFetcher>)select:(NSString *)params;
 - (id<MSOneNoteApiSectionCollectionFetcher>)filter:(NSString *)params;
+- (id<MSOneNoteApiSectionCollectionFetcher>)search:(NSString *)params;
 - (id<MSOneNoteApiSectionCollectionFetcher>)top:(int)value;
 - (id<MSOneNoteApiSectionCollectionFetcher>)skip:(int)value;
 - (id<MSOneNoteApiSectionCollectionFetcher>)expand:(NSString *)value;
@@ -40,7 +41,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 - (MSOneNoteApiSectionFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addSection:(MSOneNoteApiSection *)entity callback:(void (^)(MSOneNoteApiSection *section, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSOneNoteApiSection *)entity callback:(void (^)(MSOneNoteApiSection *section, MSODataException *e))callback;
 
 @end
 

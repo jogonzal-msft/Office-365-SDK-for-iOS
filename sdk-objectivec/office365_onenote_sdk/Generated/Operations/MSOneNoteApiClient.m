@@ -41,9 +41,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return [[MSOneNoteApiSectionCollectionFetcher alloc] initWithUrl:@"sections" parent:self];
 }
 
-- (MSODataMultipartCollectionFetcher *) getpages {
+- (MSOneNoteApiPageCollectionFetcher *) getpages {
 
-	return [[MSODataMultipartCollectionFetcher alloc] initWithUrl:@"pages" parent:self asClass:[MSOneNoteApiPage class]];
+	return [[MSOneNoteApiPageCollectionFetcher alloc] initWithUrl:@"pages" parent:self];
 }
 
 - (MSOneNoteApiResourceCollectionFetcher *) getresources {

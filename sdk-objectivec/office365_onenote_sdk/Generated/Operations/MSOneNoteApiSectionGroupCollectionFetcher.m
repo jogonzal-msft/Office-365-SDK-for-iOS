@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSOneNoteApiSectionGroup class]];
 }
 
-- (NSURLSessionTask *)addSectionGroup:(MSOneNoteApiSectionGroup*)entity callback:(void (^)(MSOneNoteApiSectionGroup *sectionGroup, MSODataException *exception))callback {
+- (NSURLSessionTask *)add:(MSOneNoteApiSectionGroup*)entity callback:(void (^)(MSOneNoteApiSectionGroup *sectionGroup, MSODataException *exception))callback {
 	
 	return [super addEntity:entity callback:^(id entityAdded, MSODataException *e) {
 

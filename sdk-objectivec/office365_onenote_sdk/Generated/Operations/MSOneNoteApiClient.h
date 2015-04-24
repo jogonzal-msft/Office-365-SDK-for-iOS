@@ -31,7 +31,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 -(MSOneNoteApiNotebookCollectionFetcher*) getnotebooks;
 -(MSOneNoteApiSectionGroupCollectionFetcher*) getsectionGroups;
 -(MSOneNoteApiSectionCollectionFetcher*) getsections;
--(MSODataMultipartCollectionFetcher*) getpages;
+-(MSOneNoteApiPageCollectionFetcher*) getpages;
 -(MSOneNoteApiResourceCollectionFetcher*) getresources;
 
 @end
