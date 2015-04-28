@@ -30,7 +30,7 @@ static AuthenticationController* INSTANCE;
     clientId =[userDefaults objectForKey: @"CliendId"];
     token = [NSString alloc];
     liveClientId = @"00000000441364FF";
-    scopesString = @"wl.signin wl.basic wl.offline_access wl.skydrive_update wl.contacts_create";
+    scopesString = @"wl.signin wl.basic wl.offline_access wl.skydrive_update wl.contacts_create office.onenote_update";
     
     NSArray *scopes = [scopesString componentsSeparatedByString:@" "];
     
