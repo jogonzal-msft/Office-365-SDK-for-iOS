@@ -69,10 +69,10 @@
 
 - (void)testCreateNotebooks:(void(^)(Test *))result {
     
-    return [[self.client.me.notes.notebooks filter:@"name eq 'Test notebook iOS'"] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
+    return [[self.client.me.notes.notebooks filter:@"name eq 'Test notebook iOS 22'"] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
         
         MSOneNoteNotebook *newNotebook = [[MSOneNoteNotebook alloc] init];
-        newNotebook.name = @"Test notebook iOS";
+        newNotebook.name = @"Test notebook iOS 222";
         
         Test *test = [Test alloc];
         
@@ -476,53 +476,24 @@
 }
 
 - (void)testSearchPage:(void(^)(Test *))result {
-    
-    NSString *imagePartName = @"sampleImage1";
-    NSString *simpleHtml = [NSString stringWithFormat: @"<html><head><title>A simple page created with an image on it</title>\
-                            <meta name=\"created\" content=\"%@\" />\
-                            </head><body><h1>This is a page with an image on it</h1><img src=\"name:%@\" alt=\"A beautiful logo\"/></body></html>", [self getSerializedCurrentDate],imagePartName];
-    
-    UIImage *someImage = [UIImage imageNamed: @"office365"];
-    NSData *contentBytes = UIImagePNGRepresentation(someImage);
-    
-    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
-    
-    MSOrcMultiPartElement *m1 = [[MSOrcMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
-    MSOrcMultiPartElement *m2 = [[MSOrcMultiPartElement alloc] initWithName:imagePartName andContentType:@"image/png" andContent:contentBytes];
-    
-    [multiparElements addObject:m1];
-    [multiparElements addObject:m2];
-    
-    __weak OneNoteTestRunner *weakSelf = self;
-    
-    return [weakSelf.client.me.notes.pages addParts:(NSMutableArray<MSOrcMultiPartElement> *)multiparElements
-                          withCallback:^(id<MSOrcResponse> response, MSOrcError *error) {
-        
-        [[weakSelf.client.me.notes.pages search:@"A simple page created with an image on it"] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSOrcError *error) {
-            
-            BOOL passed = false;
-            
-            Test *test = [Test alloc];
-            
-            test.executionMessages = [NSMutableArray array];
-            NSString* message = @"";
-            
+    return [[self.client.me.notes.pages search:@"disney"] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSOrcError *error) {
+
+        Test *test = [Test alloc];
+        BOOL passed = false;
+        NSString* message = @"";
+
             if(error == nil && pages.count > 0)
             {
                 passed = true;
                 message = @"Ok - ";
             }else{
                 message = @"Not - ";
-                if(error!= nil)
-                    message = [message stringByAppendingString: [error localizedDescription]];
             }
             
             test.passed = passed;
             [test.executionMessages addObject:message];
             
             result(test);
-            
-        }];
     }];
 }
 
